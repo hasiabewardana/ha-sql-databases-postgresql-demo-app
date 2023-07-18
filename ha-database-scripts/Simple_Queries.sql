@@ -15,3 +15,11 @@ WHERE emp_no = '10001';
 SELECT title
 FROM titles
 WHERE emp_no = '10006' AND to_date = '9999-01-01';
+
+-- Changing column names in a select query
+SELECT emp_no AS "Employee #", birth_date AS "Birthday", first_name AS "First name"
+FROM employees;
+
+-- Concat function
+SELECT emp_no, concat(first_name, ' ', last_name) AS "Full Name"
+FROM employees;
