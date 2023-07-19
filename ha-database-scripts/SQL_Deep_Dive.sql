@@ -1,3 +1,4 @@
+-- Simple queries
 -- Give me a list of all employees in the company
 SELECT *
 FROM employees;
@@ -16,10 +17,18 @@ SELECT title
 FROM titles
 WHERE emp_no = '10006' AND to_date = '9999-01-01';
 
+-- Aliases
 -- Changing column names in a select query
 SELECT emp_no AS "Employee #", birth_date AS "Birthday", first_name AS "First name"
 FROM employees;
 
+-- Functions
+-- Scalar functions
 -- Concat function
 SELECT emp_no, concat(first_name, ' ', last_name) AS "Full Name"
+FROM employees;
+
+-- Aggregate functions
+-- How many people are working in the company
+SELECT count(emp_no)
 FROM employees;
