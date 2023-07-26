@@ -98,3 +98,9 @@ FROM country;
 SELECT avg(population)
 FROM city
 WHERE countrycode = 'NLD';
+
+-- This is singe-line comment.
+/*
+This is multi-line comment.
+We can describe complex logic in multi-line comments.
+*/
