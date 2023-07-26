@@ -1,21 +1,21 @@
 -- Simple queries
--- Giving a list of all employees in the company
+-- Get the list of all employees in the company.
 -- Database: Employees
 SELECT *
 FROM employees;
 
--- How many departments are there in the company?
+-- Get the no of departments in the company.
 -- Database: Employees
 SELECT count(*)
 FROM departments;
 
--- How many times has employee 10001 had a raise?
+-- Get the no of times that employee 10001 had raises.
 -- Database: Employees
 SELECT count(*) - 1
 FROM salaries
 WHERE emp_no = '10001';
 
--- What title does 10006 have?
+-- Get the title of employee 10006.
 -- Database: Employees
 SELECT title
 FROM titles
@@ -23,30 +23,30 @@ WHERE emp_no = '10006'
   AND to_date = '9999-01-01';
 
 -- Aliases
--- Changing column names in a select query
+-- Change column names in a select query.
 -- Database: Employees
 SELECT emp_no AS "Employee #", birth_date AS "Birthday", first_name AS "First name"
 FROM employees;
 
 -- Functions
 -- Scalar functions
--- Concat function
+-- Concatenate columns.
 -- Database: Employees
 SELECT emp_no, concat(first_name, ' ', last_name) AS "Full Name"
 FROM employees;
 
 -- Aggregate functions
--- How many people are working in the company?
+-- Get the no of people working in the company.
 -- Database: Employees
 SELECT count(emp_no)
 FROM employees;
 
--- What is the minimum of employee no?
+-- Get the minimum of employee no.
 -- Database: Employees
 SELECT min(emp_no)
 FROM employees;
 
--- What is the maximum of employee no?
+-- Get the maximum of employee no.
 -- Database: Employees
 SELECT max(emp_no)
 FROM employees;
