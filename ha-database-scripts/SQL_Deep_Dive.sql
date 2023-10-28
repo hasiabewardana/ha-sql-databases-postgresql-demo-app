@@ -301,3 +301,16 @@ where zip::text like '2_1%';
 select coalesce(state, 'No State')
 from customers
 where phone::text like '302%';
+
+-- Time zone
+-- Get time zone
+show timezone;
+
+-- Only for the current session temporarily
+set time zone 'Asia/Colombo';
+
+-- Permanently
+alter user postgres set timezone = 'Asia/Colombo';
+
+-- Get current date and time
+select now();
