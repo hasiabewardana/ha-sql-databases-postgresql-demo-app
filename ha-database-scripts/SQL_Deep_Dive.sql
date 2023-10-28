@@ -104,3 +104,93 @@ WHERE countrycode = 'NLD';
 This is multi-line comment.
 We can describe complex logic in multi-line comments.
 */
+
+-- Get a list of all female employees.
+-- Database: Employees
+-- Table: employees
+SELECT first_name
+FROM employees
+WHERE gender = 'F';
+
+/*
+Filter out with 2 criteria.
+Database: Employees
+Table: employees
+*/
+SELECT *
+FROM employees
+WHERE first_name = 'Uri' AND last_name = 'Lenart';
+
+/*
+Want to filter out 2 first names
+Database: Employees
+Table: employees
+*/
+SELECT *
+FROM employees
+WHERE first_name = 'Uri' OR first_name = 'Alain';
+
+/*
+How many female customers do we have from the state of Oregon (OR) and New York (NY)?
+Database: Store
+Table: Customers
+*/
+select count(firstname)
+from customers
+where (state='OR' or state='NY') and gender='F';
+
+/*
+How many customers aren't 55?
+Database: Store
+Table: Customers
+*/
+select count(firstname)
+from customers
+where not age=55;
+
+/*
+Database: Store
+Table: Customers
+*/
+-- How many female customers do we have from the state of Oregon (OR)?
+select count(firstname)
+from customers
+where gender='F' and state='OR';
+
+-- Who over the age of 44 has an income of 100 000 or more? (excluding 44)
+select firstname
+from customers
+where age>44 and income>=100000;
+
+-- Who between the ages of 30 and 50 has an income less than 50 000?
+-- (include 30 and 50 in the results)
+select firstname
+from customers
+where age>=30 and age<=50 and income<50000;
+
+-- What is the average income between the ages of 20 and 50? (Excluding 20 and 50)
+select avg(income)
+from customers
+where age>20 and age<50;
+
+/*
+* DB: Store
+* Table: Customers
+* Question:
+* Select people either under 30 or over 50 with an income above 50000
+* Include people that are 50
+* that are from either Japan or Australia
+*/
+select firstname
+from customers
+where (age<30 or age>50) and income>50000 and age=50 and (country='Japan' or country='Australia');
+
+/*
+* DB: Store
+* Table: Orders
+* Question:
+* What was our total sales in June of 2004 for orders over 100 dollars?
+*/
+select sum(totalamount)
+from orders
+where (orderdate>='2004-06-01' and orderdate>='2004-06-30') and totalamount>100
