@@ -277,7 +277,9 @@ where first_name ilike 'A%R';
 * Question: How many people's zipcode have a 2 in it?.
 * Expected output: 4211
 */
-
+select count(customerid)
+from customers
+where zip::text like '%2%';
 
 /*
 * DB: Store
@@ -285,7 +287,9 @@ where first_name ilike 'A%R';
 * Question: How many people's zipcode start with 2 with the 3rd character being a 1.
 * Expected output: 109
 */
-
+select count(customerid)
+from customers
+where zip::text like '2_1%';
 
 /*
 * DB: Store
@@ -294,3 +298,6 @@ where first_name ilike 'A%R';
 * Replace null values with "No State"
 * Expected output: https://imgur.com/AVe6G4c
 */
+select coalesce(state, 'No State')
+from customers
+where phone::text like '302%';
